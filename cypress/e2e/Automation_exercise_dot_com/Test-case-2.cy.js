@@ -1,22 +1,27 @@
-describe('TC01 - Verify a new user can register successfully', () => {
+
+describe('TC02 - Verify that login is successful with correct email address and password', () => {
+    let email;
+    before(() => {
+        const randomString = Math.random().toString(36).substring(2, 8);
+        email = `mahesh_${randomString}@gmail.com`;
+    })
+
 
     beforeEach(() => {
         cy.visit('https://automationexercise.com/')
     })
 
-    it('User Registration', () => {
+    it('Signup and Logout', () => {
 
-        // Verify that home page is visible successfully
+        // Verify that home page is visible successfully    
         cy.title().should('contain', 'Automation Exercise')
-    
+        
         // Click on 'Signup / Login' button and verify 'New User Signup!' is visible
         cy.xpath("//a[@href='/login']").click();
-        cy.xpath("//h2").should('contain', 'New User Signup!')
+        cy.xpath("//h2").should('contain', 'Login to your account')
 
         // Enter name and email address and click 'Signup' button
         cy.xpath("//input[@placeholder='Name']").type('John Doe')
-        const randomString = Math.random().toString(36).substring(2, 8);
-        const email = `mahesh_${randomString}@gmail.com`;
         cy.xpath("//input[@data-qa='signup-email']").type(email)
         cy.xpath("//button[@data-qa='signup-button']").click()
 
@@ -46,6 +51,7 @@ describe('TC01 - Verify a new user can register successfully', () => {
         cy.xpath("//input[@id='zipcode']").type(user.zipcode)
         cy.xpath("//input[@id='mobile_number']").type(user.mobileNumber)
         })
+        
         // Click 'Create Account' button
         cy.xpath("//button[@data-qa='create-account']").click()
 
@@ -56,12 +62,26 @@ describe('TC01 - Verify a new user can register successfully', () => {
         //verify that 'Logged in as username' is visible
         cy.xpath("//a[contains(text(),'Logged in as')]").should('be.visible')
 
-        // Click 'Delete Account' button and verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
-        cy.xpath("//a[@href='/delete_account']").click()
-        cy.xpath("//b[contains(text(),'Account Deleted!')]").should('be.visible')
-        cy.xpath("//a[@data-qa='continue-button']").click()
-        
-
+        // Click on 'Logout' button
+        cy.xpath("//a[contains(text(),'Logout')]").click()
     })
 
+    it('Login with correct email address and password', () => {
+        // Click on 'Signup / Login' button and verify 'New User Signup!' is visible
+        cy.xpath("//a[@href='/login']").click();
+        cy.xpath("//h2").should('contain', 'Login to your account')
+
+        // Enter correct email address and password
+        cy.xpath("//input[@data-qa='login-email']").type(email)
+        cy.fixture('registerUser').then((user) => {
+        cy.xpath("//input[@data-qa='login-password']").type(user.password)
+        })
+
+        // Click on 'Login' button
+        cy.xpath("//button[@data-qa='login-button']").click()
+
+        // Verify that 'Logged in as username' is visible
+        cy.xpath("//a[contains(text(),'Logged in as')]").should('be.visible')
+
+    })
 })

@@ -1,0 +1,19 @@
+{
+  "email": "mahesh_3f4kc0@gmail.com",
+  "name": "John Doe",
+  "gender": "id_gender1",
+  "password": "Test@123",
+  "firstName": "John",
+  "lastName": "Doe",
+  "company": "ABC Company",
+  "address1": "123 Main St",
+  "address2": "Apt 4B",
+  "country": "United States",
+  "state": "California",
+  "city": "Los Angeles",
+  "zipcode": "90001",
+  "mobileNumber": "1234567890",
+  "day": "10",
+  "month": "May",
+  "year": "1990"
+}

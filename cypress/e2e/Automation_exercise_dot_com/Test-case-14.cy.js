@@ -1,17 +1,31 @@
-describe('TC01 - Verify a new user can register successfully', () => {
-
-    beforeEach(() => {
-        cy.visit('https://automationexercise.com/')
-    })
-
-    it('User Registration', () => {
-
-        // Verify that home page is visible successfully
+describe('Place Order: Register while Checkout', () => {
+    it('Place Order: Register while Checkout', () => {
+        //verify that home page is visible successfully
+        cy.visit('https://automationexercise.com')
         cy.title().should('contain', 'Automation Exercise')
-    
-        // Click on 'Signup / Login' button and verify 'New User Signup!' is visible
-        cy.xpath("//a[@href='/login']").click();
-        cy.xpath("//h2").should('contain', 'New User Signup!')
+
+        cy.get('.features_items .product-image-wrapper').eq(0).contains('Add to cart').click();
+        cy.contains('Continue Shopping').click();
+
+        cy.get('.features_items .product-image-wrapper').eq(1).contains('Add to cart').click();
+        cy.contains('Continue Shopping').click();
+
+        //click on 'Cart' button
+        cy.xpath("//header//a[@href='/view_cart']").click();
+        //click on 'Proceed To Checkout' button
+        cy.xpath("//a[@class='btn btn-default check_out']").click();
+
+        //verify card page is displayed
+        cy.url().should('eq', 'https://automationexercise.com/view_cart');
+
+        //continue on cart
+        cy.xpath("//button[@class='btn btn-success close-checkout-modal btn-block']").click();
+
+        //proceed to checkout
+        cy.xpath("//a[contains(@class,'check_out')]").click();
+
+        //click on logiin / register button
+        cy.xpath("//div[@class='modal-content']//a[@href='/login']").click();
 
         // Enter name and email address and click 'Signup' button
         cy.xpath("//input[@placeholder='Name']").type('John Doe')
@@ -53,15 +67,35 @@ describe('TC01 - Verify a new user can register successfully', () => {
         cy.xpath("//b[contains(text(),'Account Created!')]").should('be.visible')
         cy.xpath("//a[@data-qa='continue-button']").click()
         
-        //verify that 'Logged in as username' is visible
-        cy.xpath("//a[contains(text(),'Logged in as')]").should('be.visible')
+        //click on 'Cart' button
+        cy.xpath("//header//a[@href='/view_cart']").click();
+        
+        //click on 'Proceed To Checkout' button
+        cy.xpath("//a[@class='btn btn-default check_out']").click();
+
+        //place order
+        cy.xpath("//a[@class='btn btn-default check_out']").click();
+
+        //Payment details
+        cy.xpath("//input[@data-qa='name-on-card']").type('John Doe');
+        cy.xpath("//input[@data-qa='card-number']").type('1234 5678 9012 3456');
+        cy.xpath("//input[@data-qa='cvc']").type('123');
+        cy.xpath("//input[@data-qa='expiry-month']").type('12');
+        cy.xpath("//input[@data-qa='expiry-year']").type('2029');
+        cy.xpath("//button[@data-qa='pay-button']").click();
+
+        //verify success message 'Your order has been placed successfully!'
+        cy.xpath("//p[contains(text(),'Congratulations! Your order has been confirmed!')]").should('be.visible');
 
         // Click 'Delete Account' button and verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
         cy.xpath("//a[@href='/delete_account']").click()
         cy.xpath("//b[contains(text(),'Account Deleted!')]").should('be.visible')
         cy.xpath("//a[@data-qa='continue-button']").click()
-        
-
     })
+
+
+
+
+
 
 })
