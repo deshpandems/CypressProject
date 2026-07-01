@@ -8,7 +8,7 @@ describe('TC01 - Verify a new user can register successfully', () => {
 
         // Verify that home page is visible successfully
         cy.title().should('contain', 'Automation Exercise')
-    
+        //abc
         // Click on 'Signup / Login' button and verify 'New User Signup!' is visible
         cy.xpath("//a[@href='/login']").click();
         cy.xpath("//h2").should('contain', 'New User Signup!')
