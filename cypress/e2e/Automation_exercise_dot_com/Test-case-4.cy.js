@@ -1,3 +1,4 @@
+//Cypress Automation
 describe('TC04 - Logout the user', () => {
     beforeEach(() => {
         cy.visit('https://automationexercise.com/')

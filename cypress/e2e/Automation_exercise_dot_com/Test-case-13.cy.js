@@ -1,3 +1,5 @@
+//Cypress Automation
+
 describe('Verify Product quantity in Cart', () => {
     it('Verify Product quantity in Cart', () => {
         // Verify that home page is visible successfully

@@ -1,4 +1,7 @@
+//Cypress Automation
+
 describe('Verify address details in checkout page', () => {
+
     it('Verify address details in checkout page', () => {
         // Verify that home page is visible successfully
         cy.visit('https://automationexercise.com/')

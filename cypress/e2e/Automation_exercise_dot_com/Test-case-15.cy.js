@@ -1,3 +1,5 @@
+//Cypress Automation
+
 describe('Place Order: Register before Checkout', () => {
     it('Place Order: Register before Checkout', () => {
         //verify that home page is visible successfully

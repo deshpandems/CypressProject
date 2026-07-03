@@ -1,3 +1,5 @@
+//Cypress Automation
+
 describe('Add to cart from Recommended items', () => {
     it('Add to cart from Recommended items', () => {
         // Verify that home page is visible successfully

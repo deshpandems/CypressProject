@@ -1,3 +1,5 @@
+//Cypress Automation
+
 describe('Remove Products From Cart', () => {
     it('Remove Products From Cart', () => {
         //verify that home page is visible successfully

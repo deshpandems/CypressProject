@@ -1,3 +1,5 @@
+//Cypress Automation
+
 describe('Verify Scroll Up using Arrow button and Scroll Down functionality', () => {
     it('Verify Scroll Up using Arrow button and Scroll Down functionality', () => {
         // Verify that home page is visible successfully

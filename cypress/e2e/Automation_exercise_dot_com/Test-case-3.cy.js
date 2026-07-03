@@ -1,4 +1,5 @@
-describe    ('TC03 - Login User with incorrect email and password', () => {
+//Cypress Automation
+describe('TC03 - Login User with incorrect email and password', () => {
     let email;
     before(() => {
         const randomString = Math.random().toString(36).substring(2, 8);

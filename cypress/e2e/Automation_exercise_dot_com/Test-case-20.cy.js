@@ -1,3 +1,5 @@
+//Cypress Automation
+
 describe('Search Products and Verify Cart After Login', () => {
     it('Search for a product, add to cart, and verify cart after login', () => {
         // Verify that home page is visible successfully

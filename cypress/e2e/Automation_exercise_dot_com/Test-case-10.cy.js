@@ -1,3 +1,5 @@
+//Cypress Automation
+
 describe('Verify Subscription in home page', () => {
     it('Verify Subscription in home page', () => {
         // Verify that home page is visible successfully

@@ -1,3 +1,5 @@
+//Cypress Automation
+
 describe('Register User with existing email', () => {
     beforeEach(() => {
         cy.visit('https://automationexercise.com/')

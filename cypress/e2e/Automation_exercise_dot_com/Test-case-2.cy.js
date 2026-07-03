@@ -1,3 +1,4 @@
+//Cypress Automation
 
 describe('TC02 - Verify that login is successful with correct email address and password', () => {
     let email;

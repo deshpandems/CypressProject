@@ -1,3 +1,4 @@
+//Cypress Automation
 describe('TC01 - Verify a new user can register successfully', () => {
 
     beforeEach(() => {

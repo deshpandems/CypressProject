@@ -1,3 +1,5 @@
+//Cypress Automation
+
 describe('Search Product', () => {
     it('Search Product', () => {
          // Verify that home page is visible successfully

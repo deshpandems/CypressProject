@@ -1,3 +1,5 @@
+//Cypress Automation
+
 describe('View Category Products', () => {
     it('View Category Products', () => {
         //verify that home page is visible successfully
